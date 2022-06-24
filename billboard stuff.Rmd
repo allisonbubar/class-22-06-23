@@ -13,5 +13,6 @@ library(tidyverse)
 library(primer.data)
 library(billboard)
 glimpse(billboard)
+as_tibble(wiki_hot_100s)
 ```
 
