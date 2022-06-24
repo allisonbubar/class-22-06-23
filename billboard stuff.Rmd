@@ -6,13 +6,23 @@ date: '2022-06-24'
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(billboard)
 ```
 
 ```{r}
-library(tidyverse)
-library(primer.data)
-library(billboard)
-glimpse(billboard)
-as_tibble(wiki_hot_100s)
+x <- wiki_hot_100s |> 
+  as_tibble()
+
+```
+
+```{r}
+x |>
+  select(year, artist) |>
+  group_by(year) |>
+  distinct(artist)|>
+  summarize(distinct_artist= n())|>
+  arrange(desc(distinct_artist))
+  
 ```
 
